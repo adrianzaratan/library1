@@ -1,9 +1,10 @@
 'use strict';
+require('dotenv').config();
 
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const cors        = require('cors');
-require('dotenv').config();
+require('./db-connection');
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
@@ -49,7 +50,7 @@ const listener = app.listen(process.env.PORT || 3000, function () {
           console.log('Tests are not valid:');
           console.error(e);
       }
-    }, 1500);
+    }, 15000);
   }
 });
 
